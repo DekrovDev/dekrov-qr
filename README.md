@@ -6,7 +6,7 @@ Create customizable QR codes for links, text, Wi-Fi networks, phone numbers, ema
 
 ## Live Demo
 
-[Open QRly](https://YOUR_USERNAME.github.io/YOUR_REPOSITORY/)
+[Open Dekrov-qp](https://DekrovDev.github.io/YOUR_REPOSITORY/)
 
 ## Features
 
