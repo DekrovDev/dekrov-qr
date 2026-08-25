@@ -505,7 +505,7 @@ pngButton.addEventListener('click', () => {
   if (!canDownload()) return;
   canvas.toBlob(blob => {
     if (!blob) { showToast('Could not create the PNG'); return; }
-    downloadFile(blob, `qrly-${state.type}.png`);
+    downloadFile(blob, `dekrov-qr-${state.type}.png`);
     showToast('PNG downloaded');
   }, 'image/png');
 });
@@ -515,7 +515,7 @@ svgButton.addEventListener('click', () => {
   try {
     const validation = validateCurrent();
     const svg = makeSvg(makeQr(validation.payload));
-    downloadFile(new Blob([svg], { type: 'image/svg+xml;charset=utf-8' }), `qrly-${state.type}.svg`);
+    downloadFile(new Blob([svg], { type: 'image/svg+xml;charset=utf-8' }), `dekrov-qr-${state.type}.svg`);
     showToast('SVG downloaded');
   } catch { showToast('Could not create the SVG'); }
 });
