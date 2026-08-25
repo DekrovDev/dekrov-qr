@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QRly &mdash; QR Code Generator</title>
+    <meta name="description" content="Create QR codes for links, Wi-Fi, contacts, and messages." />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="orb orb-one"></div>
+    <div class="orb orb-two"></div>
+    <main class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="#top" aria-label="QRly home"><span class="brand-mark">&#8769;</span>QRly</a>
+        <span class="header-note"><i></i> Runs in your browser</span>
+      </header>
+
+      <section class="hero" id="top">
+        <div>
+          <h1>One code &mdash;<br /><em>many possibilities.</em></h1>
+        </div>
+        <div class="hero-doodle" aria-hidden="true"><span>&#10022;</span><span>&#8769;</span><span>&#10035;</span></div>
+      </section>
+
+      <section class="workspace" aria-label="QR code generator">
+        <div class="editor-card">
+          <div class="section-label"><span>01</span><b>What would you like to encode?</b></div>
+          <div class="type-grid" role="radiogroup" aria-label="QR code type">
+            <button class="type-button active" data-type="url" role="radio" aria-checked="true"><span>&nearr;</span>Link</button>
+            <button class="type-button" data-type="text" role="radio" aria-checked="false"><span>&#9998;</span>Text</button>
+            <button class="type-button" data-type="wifi" role="radio" aria-checked="false"><span>&#9684;</span>Wi-Fi</button>
+            <button class="type-button" data-type="phone" role="radio" aria-checked="false"><span>&#9742;</span>Phone</button>
+            <button class="type-button" data-type="email" role="radio" aria-checked="false"><span>&#9993;</span>Email</button>
+            <button class="type-button" data-type="contact" role="radio" aria-checked="false"><span>&#9817;</span>Contact</button>
+          </div>
+          <div id="fields" class="fields"></div>
+          <div id="form-message" class="form-message" role="status" aria-live="polite"></div>
+          <div class="payload-row"><span>Encoded content</span><code id="payload-preview">https://example.com</code><button id="copy-button" title="Copy encoded content" aria-label="Copy encoded content">&#10697;</button></div>
+
+          <div class="section-label settings-title"><span>02</span><b>Customize appearance</b></div>
+          <div class="settings-grid">
+            <label class="control-label">QR color <span id="foreground-value">#171A31</span><input id="foreground" type="color" value="#171a31" /></label>
+            <label class="control-label">Background <span id="background-value">#FFFFFF</span><input id="background" type="color" value="#ffffff" /></label>
+            <label class="control-label size-control">Size <span id="size-value">512 px</span><input id="size" type="range" min="240" max="1200" step="16" value="512" /></label>
+            <label class="toggle-label"><input id="transparent" type="checkbox" /><span class="switch"></span>Transparent background</label>
+          </div>
+          <div id="appearance-message" class="appearance-message" role="status" aria-live="polite"></div>
+        </div>
+
+        <aside class="preview-card">
+          <div class="preview-head"><span>Preview</span><span id="preview-status" class="live-dot"><i></i><span>ready</span></span></div>
+          <div id="qr-stage" class="qr-stage">
+            <div id="qr-empty-state" class="qr-empty-state" hidden>
+              <p id="qr-empty-message">Complete the required fields to generate a QR code.</p>
+            </div>
+            <div class="qr-paper" id="qr-paper"><canvas id="qr-canvas" aria-label="Generated QR code"></canvas></div>
+          </div>
+          <p class="scan-note" id="scan-note">Use your camera to test the code</p>
+          <div class="download-row">
+            <button class="download-button primary" id="download-png"><span>&darr;</span> Download PNG</button>
+            <button class="download-button" id="download-svg"><span>&darr;</span> SVG</button>
+          </div>
+        </aside>
+      </section>
+
+      <footer class="site-credit">
+        <span>Made by</span>
+        <a href="https://dekrov.com/" target="_blank" rel="noreferrer">Dekrov.dev <span aria-hidden="true">&nearr;</span></a>
+      </footer>
+
+    </main>
+    <div id="toast" role="status" aria-live="polite"></div>
+    <script src="qrcode-generator.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
