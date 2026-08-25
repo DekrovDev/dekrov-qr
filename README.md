@@ -1,4 +1,4 @@
-# QRly — QR Code Generator
+# Dekrov-qr — QR Code Generator
 
 A lightweight, privacy-friendly QR code generator that runs entirely in your browser.
 
